@@ -12,6 +12,10 @@ export class AppComponent {
   public userData = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
+    address: new FormGroup({
+      city: new FormControl(''),
+      street: new FormControl(''),
+    })
   });
 
   constructor() {

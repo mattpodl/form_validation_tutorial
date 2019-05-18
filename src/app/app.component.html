@@ -1,11 +1,19 @@
 <form [formGroup]="userData">
 
   <label for="firstName">Fist name</label>
-
   <input type="password" name="fistName" id="firstName" formControlName="firstName">
-  <label for="lastName">Last name</label>
 
+  <label for="lastName">Last name</label>
   <input type="password" name="lastName" id="lastName" formControlName="lastName">
 
+  <div formGroupName="address">
+  <label for="city">City</label>
+  <input type="text" name="city" id="city" formControlName="city">
+
+  <label for="street">Street</label>
+  <input type="text" name="street" id="street" formControlName="street">
+  </div>
 </form>
 <button (click)="setName()">Set name</button>
+
+<pre> {{userData.value | json }}</pre>
