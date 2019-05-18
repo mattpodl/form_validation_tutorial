@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +9,23 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class AppComponent {
   title = 'formy';
  // public firstName = new FormControl('');
-  public userData = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    address: new FormGroup({
-      city: new FormControl(''),
-      street: new FormControl(''),
-    })
-  });
-
-  constructor() {
+ //  public userData = new FormGroup({
+ //    firstName: new FormControl(''),
+ //    lastName: new FormControl(''),
+ //    address: new FormGroup({
+ //      city: new FormControl(''),
+ //      street: new FormControl(''),
+ //    })
+ //  });
+public userData = this.fb.group({
+  firstName: [''],
+  lastName: [''],
+  address: this.fb.group({
+    city: [''],
+    street: [''],
+  })
+})
+  constructor(private fb: FormBuilder) {
     //this.firstName.valueChanges.subscribe(value => console.log(value));
   }
 
@@ -29,6 +36,9 @@ export class AppComponent {
     })
 
    // this.firstName.setValue('jakaswartosc');
+  }
+  onSubmit() {
+  console.table(this.userData.value);
   }
 
 

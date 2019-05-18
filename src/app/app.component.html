@@ -1,4 +1,4 @@
-<form [formGroup]="userData">
+<form [formGroup]="userData" (ngSubmit)="onSubmit()">
 
   <label for="firstName">Fist name</label>
   <input type="password" name="fistName" id="firstName" formControlName="firstName">
@@ -13,6 +13,7 @@
   <label for="street">Street</label>
   <input type="text" name="street" id="street" formControlName="street">
   </div>
+  <button type="submit">submit</button>
 </form>
 <button (click)="setName()">Set name</button>
 
