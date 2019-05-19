@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FormControl, FormGroup, FormBuilder} from '@angular/forms';
+import {FormControl, FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +18,8 @@ export class AppComponent {
  //    })
  //  });
 public userData = this.fb.group({
-  firstName: [''],
-  lastName: [''],
+  firstName: ['', Validators.required],
+  lastName: ['', Validators.required],
   address: this.fb.group({
     city: [''],
     street: [''],
